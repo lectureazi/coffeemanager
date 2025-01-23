@@ -1,6 +1,7 @@
 package com.mc.coffeemanager.domain.code;
 
 import com.mc.coffeemanager.domain.coffee.Coffee;
+import com.mc.coffeemanager.domain.coffee.SeasonCoffee;
 
 // enum : 열거형
 // 서로 연관된 상수들의 집합
@@ -10,7 +11,7 @@ public enum OrderStatus {
     OK(0, "주문 생성 성공"),
     FAIL_SOLDOUT(1, "품절로 인한 주문 실패"),
     FAIL_STOCK(2, "재고부족으로 인한 주문 실패"),
-    OrderStatus(3, "비시즌입니다."),
+    FAIL_SEASON(3, "비시즌입니다."),
     COMPLETE(4, "주문처리가 완료되었습니다.");
 
     private int code;
@@ -27,6 +28,11 @@ public enum OrderStatus {
 
     public static OrderStatus checkStatus(Coffee coffee, int orderCnt) {
         if(coffee.getStock() < orderCnt) return FAIL_STOCK;
+
+        if(coffee instanceof SeasonCoffee seasonCoffee){
+            if(!seasonCoffee.isSeason()) return FAIL_SEASON;
+        }
+
         return OK;
     }
 

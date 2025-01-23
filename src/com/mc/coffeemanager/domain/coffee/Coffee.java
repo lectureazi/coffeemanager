@@ -1,6 +1,5 @@
 package com.mc.coffeemanager.domain.coffee;
 
-import com.mc.coffeemanager.domain.account.Account;
 import com.mc.coffeemanager.domain.purchase.Purchase;
 
 public class Coffee {
