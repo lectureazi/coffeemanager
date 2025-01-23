@@ -1,7 +1,7 @@
 package com.mc.coffeemanager.presentation;
 
-
 import com.mc.coffeemanager.domain.account.Account;
+import com.mc.coffeemanager.domain.code.OrderStatus;
 import com.mc.coffeemanager.domain.coffee.Coffee;
 import com.mc.coffeemanager.domain.order.Order;
 import com.mc.coffeemanager.domain.payment.Payment;
@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 // 3 tier architecture
 // 1. presentation layer    : 표현계층 (프로그램과 사용자간의 요청-응답과 관련된 로직)
-// 2. domain(service) layer : 로직계층 (프로그램의 핵심 로직)
+// 2. service(domain) layer : 로직계층 (프로그램의 핵심 로직)
 // 3. persistence layer   :  영속성계층 db, 지금 할 수가 없음
 public class Menu {
 
@@ -92,9 +92,10 @@ public class Menu {
     private void registOrder(int inputCode, int orderCnt) {
 
         Order order = Order.createOrder(drinks[inputCode], orderCnt);
+        OrderStatus status = order.getStatus();
 
-        if(order == null) {
-            System.out.println(" * 재고가 부족합니다.");
+        if(!status.isOk()) {
+            System.out.println(" * " + status.desc());
             return;
         }
 
