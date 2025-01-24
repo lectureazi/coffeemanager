@@ -25,7 +25,7 @@ public class Purchase {
 
     public void proceed() {
         Account account = Account.getInstance();
-        if(account.registExpenses(purchasePrice)) {
+        if (account.registExpenses(purchasePrice)) {
             System.out.println("* system: " + coffee.getName() + "[" + purchaseCnt + "잔]을 매입했습니다.");
             coffee.addStock(purchaseCnt);
             return;

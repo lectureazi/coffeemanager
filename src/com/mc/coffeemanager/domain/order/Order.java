@@ -14,7 +14,7 @@ public class Order {
     private LocalDateTime orderTime;
     private OrderStatus status;
 
-    public static Order createOrder(Coffee coffee, int orderCnt){
+    public static Order createOrder(Coffee coffee, int orderCnt) {
         Order order = new Order(coffee, orderCnt);
         order.status = OrderStatus.checkStatus(coffee, orderCnt);
         return order;
@@ -54,5 +54,9 @@ public class Order {
 
     public void proceed() {
         coffee.provide(orderCnt);
+    }
+
+    public String getCoffeeName() {
+        return coffee.getName();
     }
 }

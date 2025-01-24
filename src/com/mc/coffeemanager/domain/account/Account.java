@@ -37,7 +37,7 @@ public class Account {
     }
 
     public boolean registExpenses(int price) {
-        if(balance < price) return false;
+        if (balance < price) return false;
         balance -= price;
         expenses += price;
         return true;

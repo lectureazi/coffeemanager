@@ -12,10 +12,10 @@ public class SeasonCoffee extends Coffee {
         this.seasonMonth = seasonMonth;
     }
 
-    public boolean isSeason(){
+    public boolean isSeason() {
         int nowMonth = LocalDate.now().getMonthValue();
         for (Month month : seasonMonth) {
-            if(nowMonth == month.getValue()) return true;
+            if (nowMonth == month.getValue()) return true;
         }
 
         return false;

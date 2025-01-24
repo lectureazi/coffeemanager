@@ -3,8 +3,9 @@ package com.mc.coffeemanager.domain.payment;
 import com.mc.coffeemanager.domain.account.Account;
 import com.mc.coffeemanager.domain.discount.PercentDiscount;
 import com.mc.coffeemanager.domain.order.Order;
+import com.mc.coffeemanager.domain.payment.translate.PaymentTranslator;
 
-public class Payment {
+public class Payment implements PaymentTranslator {
 
     private Order order;
     private int paymentPrice;
@@ -17,8 +18,19 @@ public class Payment {
         return order;
     }
 
-    public int getPaymentPrice() {
-        return paymentPrice;
+    @Override
+    public String getOrderName() {
+        return order.getName();
+    }
+
+    @Override
+    public String getPaymentPrice() {
+        return String.valueOf(paymentPrice);
+    }
+
+    @Override
+    public Payment getPayment() {
+        return this;
     }
 
     public void proceed() {
@@ -30,5 +42,9 @@ public class Payment {
     private void calPaymentPrice() {
         int discount = PercentDiscount.calDiscount(order);
         this.paymentPrice = order.getOrderPrice() - discount;
+    }
+
+    public String getCoffeeName() {
+        return order.getCoffeeName();
     }
 }

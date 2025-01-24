@@ -3,11 +3,11 @@ package com.mc.coffeemanager.domain.coffee;
 import com.mc.coffeemanager.domain.purchase.Purchase;
 
 public class Coffee {
-    private String name;
-    private int price;
-    private int purchasePrice;
+    private final String name;
+    private final int price;
+    private final int purchasePrice;
     private int stock;
-    private int safetyStock;
+    private final int safetyStock;
     private int salesCnt;
 
     public Coffee(String name, int price, int purchasePrice, int stock, int safetyStock, int salesCnt) {
@@ -56,7 +56,7 @@ public class Coffee {
 
     private void deductStock(int orderCnt) {
         stock -= orderCnt;
-        if(stock < safetyStock){
+        if (stock < safetyStock) {
             int purchaseCnt = safetyStock * 2;
             Purchase purchase = new Purchase(this, purchaseCnt);
             purchase.proceed();

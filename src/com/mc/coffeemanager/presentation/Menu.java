@@ -30,7 +30,7 @@ public class Menu {
 
     public void proceed() {
 
-        while(true) {
+        while (true) {
 
             System.out.println("\n=========Menu=========");
             System.out.println("판매등록(1)");
@@ -80,7 +80,7 @@ public class Menu {
         System.out.print(" * 판매량 : ");
         int orderCnt = sc.nextInt();
 
-        if(inputCode < 0 || inputCode >= drinks.length) {
+        if (inputCode < 0 || inputCode >= drinks.length) {
             System.out.println("정확한 상품번호를 선택해 주세요.");
             return;
         }
@@ -94,7 +94,7 @@ public class Menu {
         Order order = Order.createOrder(drinks[inputCode], orderCnt);
         OrderStatus status = order.getStatus();
 
-        if(!status.isOk()) {
+        if (!status.isOk()) {
             System.out.println(" * " + status.desc());
             return;
         }

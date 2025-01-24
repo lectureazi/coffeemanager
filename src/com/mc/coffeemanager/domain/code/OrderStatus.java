@@ -22,21 +22,21 @@ public enum OrderStatus {
         this.desc = desc;
     }
 
-    public String desc(){
+    public String desc() {
         return desc;
     }
 
     public static OrderStatus checkStatus(Coffee coffee, int orderCnt) {
-        if(coffee.getStock() < orderCnt) return FAIL_STOCK;
+        if (coffee.getStock() < orderCnt) return FAIL_STOCK;
 
-        if(coffee instanceof SeasonCoffee seasonCoffee){
-            if(!seasonCoffee.isSeason()) return FAIL_SEASON;
+        if (coffee instanceof SeasonCoffee seasonCoffee) {
+            if (!seasonCoffee.isSeason()) return FAIL_SEASON;
         }
 
         return OK;
     }
 
-    public boolean isOk(){
+    public boolean isOk() {
         return code == OK.code;
     }
 

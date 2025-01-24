@@ -17,11 +17,11 @@ public enum PercentDiscountPolicy {
         this.rate = rate;
     }
 
-    public boolean checkRange(Order order){
+    public boolean checkRange(Order order) {
         return order.getOrderPrice() >= min && order.getOrderPrice() < max;
     }
 
-    public double rate(){
+    public double rate() {
         return rate;
     }
 
