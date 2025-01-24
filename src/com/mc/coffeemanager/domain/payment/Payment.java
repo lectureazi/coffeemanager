@@ -18,18 +18,22 @@ public class Payment implements PaymentTranslator {
         return order;
     }
 
+    public int getPaymentPrice() {
+        return paymentPrice;
+    }
+
     @Override
-    public String getOrderName() {
+    public String translateOrderName() {
         return order.getName();
     }
 
     @Override
-    public String getPaymentPrice() {
+    public String translatePaymentPrice() {
         return String.valueOf(paymentPrice);
     }
 
     @Override
-    public Payment getPayment() {
+    public Payment getTarget() {
         return this;
     }
 
@@ -46,5 +50,9 @@ public class Payment implements PaymentTranslator {
 
     public String getCoffeeName() {
         return order.getCoffeeName();
+    }
+
+    public int getOrderCnt() {
+        return order.getOrderCnt();
     }
 }

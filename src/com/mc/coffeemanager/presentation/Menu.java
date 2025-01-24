@@ -5,6 +5,7 @@ import com.mc.coffeemanager.domain.code.OrderStatus;
 import com.mc.coffeemanager.domain.coffee.Coffee;
 import com.mc.coffeemanager.domain.order.Order;
 import com.mc.coffeemanager.domain.payment.Payment;
+import com.mc.coffeemanager.domain.payment.translate.PaymentTranslator;
 import com.mc.coffeemanager.domain.sale.Sale;
 
 import java.util.Scanner;
@@ -99,8 +100,8 @@ public class Menu {
             return;
         }
 
-        Payment payment = sale.takeOrder(order);
-        System.out.println("* " + order.getName());
-        System.out.println("* 결재금액 : " + payment.getPaymentPrice());
+        PaymentTranslator payment = sale.takeOrder(order);
+        System.out.println("* " + payment.translateOrderName());
+        System.out.println("* 결재금액 : " + payment.translatePaymentPrice());
     }
 }
