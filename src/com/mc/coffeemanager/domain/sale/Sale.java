@@ -4,6 +4,7 @@ import com.mc.coffeemanager.domain.order.Order;
 import com.mc.coffeemanager.domain.payment.Payment;
 import com.mc.coffeemanager.domain.payment.translate.Language;
 import com.mc.coffeemanager.domain.payment.translate.PaymentTranslator;
+import com.mc.coffeemanager.domain.payment.translate.SpainPaymentInfo;
 
 import java.util.List;
 

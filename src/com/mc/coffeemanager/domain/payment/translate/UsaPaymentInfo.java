@@ -37,7 +37,4 @@ public class UsaPaymentInfo extends PaymentDecorator{
     public Payment getTarget() {
         return target.getTarget();
     }
-
-
-
 }

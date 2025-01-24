@@ -7,6 +7,10 @@ import com.mc.coffeemanager.domain.payment.translate.Language;
 import com.mc.coffeemanager.domain.sale.Sale;
 import com.mc.coffeemanager.presentation.Menu;
 
+import javax.crypto.Cipher;
+import javax.crypto.CipherInputStream;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.time.Month;
 import java.util.List;
 
@@ -20,7 +24,7 @@ public class Run {
                 , 10, 3, 0, new Month[]{Month.JULY, Month.AUGUST, Month.OCTOBER});
 
         Coffee[] coffees = {americano, mocha, latte, espresso};
-        List<Language> langs = List.of(Language.SPAIN, Language.USA);
+        List<Language> langs = List.of(Language.SPAIN, Language.USA, Language.CHINA);
         new Menu(new Sale(langs), Account.getInstance(100000), coffees).proceed();
     }
 }
